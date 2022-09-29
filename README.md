@@ -1,8 +1,8 @@
-![Codeforces](https://img.shields.io/badge/Codeforces-445f9d?style=for-the-badge&logo=Codeforces&logoColor=white)
+
 # Solutions to Competitive Programming Practice  problems
 
 It includes solutions to both practice and contest problems from:
-
+![Codeforces](https://img.shields.io/badge/Codeforces-445f9d?style=for-the-badge&logo=Codeforces&logoColor=white)
 
 This repository is personal, made public in the hope that someone may find it useful, but:
 - Solutions may be broken or not work for you.
