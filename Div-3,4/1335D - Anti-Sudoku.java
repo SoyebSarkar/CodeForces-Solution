@@ -1,0 +1,134 @@
+import static java.lang.Math.*;
+import static java.lang.System.*;
+
+import java.lang.reflect.Array;
+import java.util.*;
+import java.io.*;
+
+public class Main {
+
+        static long mod = 1000000007;
+
+
+
+    public static void main(String[] args) throws IOException {
+        try {
+            FastReader in = new FastReader();
+            FastWriter out = new FastWriter();
+//          Author: Soyeb Sarkar
+
+
+            int testcases = in.nextInt();
+//            int testcases = 1;
+            while (testcases-- > 0) {
+                //---------------------------------------------------------
+
+                int n = 9;
+                int[][] ar = new int[n][n];
+                for (int i = 0; i < n; i++) {
+                    StringBuilder str = new StringBuilder(in.next());
+                    for (int j = 0; j < n; j++) {
+                        ar[i][j] = str.charAt(j)-'0';
+                    }
+                }
+                int incr = 0;
+                for (int i = 0; i < n; i+=3) {
+                    ar[i][incr] = (ar[i][incr] != ar[i+1][incr])? ar[i+1][incr]:ar[i+2][incr];
+                    ar[i+1][3+incr] =(ar[i+1][3+incr] != ar[i][3+incr])? ar[i][3+incr]:ar[i+2][3+incr];
+                    ar[i+2][6+incr] = (ar[i+2][6+incr] != ar[i][6+incr])? ar[i][6+incr]:ar[i+1][6+incr];
+                    incr++;
+
+                }
+
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                        out.print(ar[i][j]);
+                    }
+                    out.println("");
+                }
+
+                // ---------------------------------------------------
+            }
+            out.close();
+        } catch (Exception e) {
+            out.println(e);
+            return;
+        }
+    }
+
+
+
+
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public FastReader() {
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        String next() {
+            while (st == null || !st.hasMoreTokens()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine().trim();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
+
+    static class FastWriter {
+        private final BufferedWriter bw;
+
+        public FastWriter() {
+            this.bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        }
+
+        public void print(Object object) throws IOException {
+            bw.append("" + object);
+        }
+
+        public void println(Object object) throws IOException {
+            print(object);
+            bw.append("\n");
+        }
+
+        public void close() throws IOException {
+            bw.close();
+        }
+    }
+
+}
+
+class Pair{
+    int fe;
+    int se;
+    Pair(int f, int s){
+        this.fe = f;
+        this.se = s;
+    }
+}
